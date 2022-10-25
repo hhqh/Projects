@@ -5,6 +5,9 @@
  * and function prototypes of the carbCustomer class.
  */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wc++11-extensions"
+
 #ifndef CARBCUSTOMER_H
 #define CARBCUSTOMER_H
 

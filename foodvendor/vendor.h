@@ -5,6 +5,8 @@
  * and function prototypes of the vendor class.
  */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wc++11-extensions"
 
 #ifndef VENDOR_H
 #define VENDOR_H
