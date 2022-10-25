@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.HomePage"
+             BackgroundImageSource="home_background.png">
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Image Source="logo.png"
+                   Style="{StaticResource ImageXtraLargeStyle}"/>
+            
+            <Button Text="Start!"
+                    Style="{StaticResource StartButton}"                
+                    HeightRequest="50"
+                    Clicked="GameButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

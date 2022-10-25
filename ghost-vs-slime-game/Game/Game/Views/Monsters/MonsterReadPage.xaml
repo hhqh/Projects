@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.MonsterReadPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource ReadPageStack}">
+                
+                <Label Text="{Binding Data.Name}" 
+                       Style="{StaticResource ValueStyle}"
+                       HorizontalOptions="CenterAndExpand"/>
+
+                <Image Source="{Binding Data.ImageURI}" 
+                       Style="{StaticResource ImageLargeStyle}"
+                       Margin="0,20,0,20"/>
+
+                <Label Text="{Binding Data.Description}" 
+                       Style="{StaticResource ValueStyle}" 
+                       Margin="0,0,0,20"/>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Level: "
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.Level}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Difficulty: "
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.Difficulty}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Attack: " 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.Attack}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Defense: " 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.Defense}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Speed: " 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.Speed}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource WordSpacingStack}">
+                    <Label Text="Max Heath: " 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.MaxHealth}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                             Margin="0,0,0,20">
+                    <Label Text="Unique Item: " 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.UniqueItem}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                             HorizontalOptions="Center">
+                    <Button Text="Delete"
+                            Style="{StaticResource SpacingButton}"
+                            Clicked="Delete_Clicked"/>
+                    
+                    <Button Text="Update"
+                            Style="{StaticResource DefaultButton}"
+                            Clicked="Update_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

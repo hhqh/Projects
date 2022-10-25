@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.BattlePage"
+             NavigationPage.HasNavigationBar="false">
+    
+    <ContentPage.Content>
+        <ScrollView>       
+            <StackLayout Style="{StaticResource ReadPageStack}">
+                <!--Player Overview-->
+                <StackLayout x:Name="PlayerOverview" 
+                             Style="{StaticResource ReadPageStack}" 
+                             VerticalOptions="StartAndExpand" 
+                             IsVisible="true">
+                        <Label Text="Your Ghosts"
+                               Style="{StaticResource CenterMessageLargeStyle}"/>
+
+                        <FlexLayout x:Name="CharacterBox"
+                                    Style="{StaticResource BattlePlayerFlexStyle}"/>
+
+                        <Label Text="Your Slimes"
+                               Style="{StaticResource CenterMessageLargeStyle}" 
+                               Margin="0,-10,0,0"/>
+
+                        <FlexLayout x:Name="MonsterBox"  
+                                    Style="{StaticResource BattlePlayerFlexStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" Margin="0,-80,0,0">
+                    <Button x:Name="BeginBattle" 
+                            Clicked="BeginButton_Clicked" 
+                            Text="Begin" 
+                            Style="{StaticResource SpacingButton}"/>
+
+                    <Button x:Name="BattleSettings" 
+                            Clicked="Settings_Clicked" 
+                            Text="Settings" 
+                            Style="{StaticResource DefaultButton}"/>
+                </StackLayout>
+                
+                <!--Battle View-->
+                <StackLayout x:Name="BattleView" 
+                             Style="{StaticResource VerticalStack}" 
+                             HorizontalOptions="CenterAndExpand" 
+                             Margin="0,80,0,0" 
+                             IsVisible="false">
+                        <StackLayout x:Name="CharacterHealth" 
+                                     Style="{StaticResource HorizontalStack}"/>
+
+                        <StackLayout x:Name="MonsterHealth" 
+                                     Style="{StaticResource HorizontalStack}"/>
+
+                        <Grid x:Name="BattlePlayers" Style="{StaticResource BattleGridStyle}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                </StackLayout>
+
+                <!---Message Boxes-->
+                <StackLayout x:Name="MessageStack" Style="{StaticResource VerticalStack}">
+                    <Frame Style="{StaticResource EditorPickerFrame}" Margin="0,40,0,0">
+                        <StackLayout x:Name="TreasureMessageBox" 
+                                     Style="{StaticResource MessageBoxStack}" 
+                                     HeightRequest="100"
+                                     HorizontalOptions="CenterAndExpand" 
+                                     IsVisible="false">
+
+                            <StackLayout x:Name="ItemsDrop" 
+                                         Style="{StaticResource MessageBoxStack}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Style="{StaticResource EditorPickerFrame}" Margin="0,-100,0,0">
+                        <StackLayout x:Name="Messages" Style="{StaticResource MessageBoxStack}" IsVisible="false">
+                            <Label x:Name="BattleMessages" 
+                               HorizontalOptions="CenterAndExpand"
+                               LineBreakMode="WordWrap" 
+                               MaxLines="3"
+                               LineHeight="1"
+                               CharacterSpacing="1"
+                               Style="{StaticResource CenterMessageStyle}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryBackgroundColor}"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout x:Name="MonsterList" Style="{StaticResource VerticalStack}" IsVisible="false">
+                        <ListView x:Name="MonsterListView"
+                                  ItemSelected="OnMonsterSelected" 
+                                  >
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnSpacing="5" RowSpacing="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Source="{Binding ImageURI}"
+                                            Style="{StaticResource ImageSmallStyle}"
+                                            VerticalOptions="CenterAndExpand"/>
+
+                                            <Label Grid.Column="1" Grid.Row="0"
+                                            Text="{Binding Name}" 
+                                            Style="{StaticResource ListStyle}"
+                                            TextColor="{StaticResource PrimaryTextColor}"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="ButtonGroup" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" IsVisible="false">
+                    <ImageButton x:Name="TreasureButton"
+                                 Source="treasure.png"
+                                 Clicked="TreasureButton_Clicked"
+                                 Style="{StaticResource BattleToolbarStyle}"/>
+                    
+                    <StackLayout x:Name="CombatUI" Style="{StaticResource HorizontalStack}" Margin="-140,0,0,0" IsVisible="false">
+                        <Button x:Name="NextButton" 
+                                Clicked="GetAttacker"
+                                Style="{StaticResource DefaultButton}" 
+                                Text="Next Turn" 
+                                WidthRequest="100"
+                                IsVisible="true"
+                                IsEnabled="true"/>
+
+                        <Button x:Name="Attack" 
+                                Clicked="ShowMonster_Clicked"
+                                Style="{StaticResource DefaultButton}" 
+                                Text="Attack" 
+                                WidthRequest="100"
+                                IsVisible="true"
+                                IsEnabled="False"
+                                Margin="10,0,10,0"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <!--Game Over-->
+                <StackLayout x:Name="GameOver" Style="{StaticResource VerticalStack}"  
+                             Spacing="20" 
+                             Padding="0,50,0,0"
+                             IsVisible="false">
+                    <Image Source="archer_slime.png" 
+                           Style="{StaticResource ImageLargeStyle}"/>
+                    
+                    <Frame Style="{StaticResource EditorPickerFrame}">
+                        <StackLayout Style="{StaticResource MessageBoxStack}">
+                            <Label Text="Slimes Won!" 
+                                   Style="{StaticResource LabelMessageLargeStyle}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Label Text="Score"
+                           Style="{StaticResource CenterMessageLargeStyle}"
+                           HorizontalOptions="Start"
+                           Margin="0,10,0,0"/>
+
+                    <Frame Style="{StaticResource EditorPickerFrame}">
+                        <StackLayout Style="{StaticResource MessageBoxStack}" 
+                                     HeightRequest="140">
+                            <StackLayout Style="{StaticResource GameOverStack}">
+                                <Label Text="Rounds Cleared ....................." 
+                                       Style="{StaticResource LabelMessageStyle}"/>
+
+                                <Label x:Name="TotalRoundsCleared"
+                                       Style="{StaticResource LabelMessageStyle}"/>
+                            </StackLayout>
+
+
+                            <StackLayout Style="{StaticResource GameOverStack}">
+                                <Label Text="Slimes Slain ......................." 
+                                       Style="{StaticResource LabelMessageStyle}"/>
+
+                                <Label x:Name="TotalMonstersSlain"
+                                       Style="{StaticResource LabelMessageStyle}"/>
+                            </StackLayout>
+
+                            <StackLayout Style="{StaticResource GameOverStack}">
+                                <Label Text="Experience Gained .................." 
+                                       Style="{StaticResource LabelMessageStyle}"/>
+
+                                <Label x:Name="TotalExperienceGained"
+                                       Style="{StaticResource LabelMessageStyle}"/>
+                            </StackLayout>
+
+                            <StackLayout Style="{StaticResource GameOverStack}">
+                                <Label Text="Items Collected ...................." 
+                                       Style="{StaticResource LabelMessageStyle}"/>
+
+                                <Label x:Name="TotalItemsFound"
+                                       Style="{StaticResource LabelMessageStyle}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Clicked="Exit_Clicked" 
+                            Text="Exit"
+                            Style="{StaticResource SpacingButton}"
+                            WidthRequest="75"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView> 
+    </ContentPage.Content>
+</ContentPage>

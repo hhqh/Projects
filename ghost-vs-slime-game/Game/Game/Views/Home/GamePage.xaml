@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.GamePage"
+             BackgroundImageSource="homepage_background.png">
+
+    <ContentPage.Content>
+        <ScrollView 
+            HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource VerticalStack}" Spacing="20" Padding="0,120,0,0">
+                <Button Text="Village"
+                        Clicked="VillageButton_Clicked"
+                        Style="{StaticResource DefaultButton}"
+                        WidthRequest="150"
+                        HeightRequest="50"/>
+                
+                <Button Text="Battle"
+                        Clicked="BattleButton_Clicked"
+                        Style="{StaticResource DefaultButton}"
+                        WidthRequest="150"
+                        HeightRequest="50"/>
+
+                <Button Text="Auto Battle"
+                        Clicked="AutobattleButton_Clicked"
+                        Style="{StaticResource DefaultButton}"
+                        WidthRequest="150"
+                        HeightRequest="50"/>
+
+                <Button Text="About"
+                        Clicked="AboutButton_Clicked"
+                        Style="{StaticResource DefaultButton}"
+                        BackgroundColor="#32CD32"
+                        BorderColor="#32CD32"
+                        WidthRequest="150"
+                        HeightRequest="50"
+                        Margin="0,50,0,0"/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

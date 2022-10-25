@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="BrowseItemsPage"
+             x:Class="Game.Views.PickCharactersPage"
+             BackgroundImageSource="select_background.png">
+
+    <NavigationPage.TitleView>
+        <Label Text="Pick Characters" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never" HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource VerticalStack}">
+                <CarouselView x:Name="CharacterList"
+                              ItemsSource="{Binding DatabaseCharacterList}"                             
+                              Style="{StaticResource CharacterSelectStyle}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Name}" 
+                                       Style="{StaticResource ValueStyle}" 
+                                       HorizontalOptions="CenterAndExpand"
+                                       Margin="0,20,0,0"/>
+
+                                <Image Source="{Binding ImageURI}" 
+                                       Style="{StaticResource ImageLargeStyle}" 
+                                       Scale="0.8"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Button Text="Select" 
+                        Style="{StaticResource DefaultButton}" 
+                        Clicked="SelectPartyCharacter_Clicked"
+                        Margin="0,-50,0,0"/>
+
+                <RefreshView IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                             Command="{Binding LoadItemsCommand}">
+                    <CollectionView x:Name="PartyCollectionView" 
+                              ItemsSource="{Binding PartyCharacterList}" 
+                              Style="{StaticResource BattleCollectionStyle}"
+                              SelectionChanged="RemovePartyCharacter_Clicked">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" 
+                                             Span="2" 
+                                             VerticalItemSpacing="4" 
+                                             HorizontalItemSpacing="4"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageURI}" 
+                                       Style="{StaticResource ImageLargeStyle}" 
+                                       Scale="0.7"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+
+                <Button Text="Done" 
+                        x:Name="BeginBattleButton" 
+                        Style="{StaticResource DefaultButton}" 
+                        Clicked="BattleButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

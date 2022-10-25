@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.BattleSettingsPage">
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
+            <Label Style="{StaticResource CenterMessageLargeStyle}" 
+                   Text="Battle Settings" 
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Text ="Control Hit Actions" 
+                   Style="{StaticResource HeaderStyle}" />
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Monster Hit Control" 
+                       Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource SettingPickerFrame}" Margin="30,0,0,0">
+                    <Picker Style="{StaticResource SettingPicker}" 
+                            x:Name="MonsterHitPicker"
+                            SelectedItem="{Binding SelectedItemProperty, Mode=TwoWay}" 
+                            SelectedIndexChanged="MonsterHitPicker_Changed"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Character Hit Control" 
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <Frame Style="{StaticResource SettingPickerFrame}">
+                    <Picker Style="{StaticResource SettingPicker}"
+                            x:Name="CharacterHitPicker"
+                            SelectedItem="{Binding SelectedItemProperty, Mode=TwoWay}" 
+                            SelectedIndexChanged="CharacterHitPicker_Changed"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Allow Critical Hit" 
+                       Style="{DynamicResource LabelStyle}"/>
+
+                <Switch Style="{StaticResource DefaultSwitch}"
+                        Margin="47,0,0,0"
+                        x:Name="AllowCriticalHitSwitch"
+                        Toggled="AllowCriticalHit_Toggled"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Allow Critical Miss" 
+                       Style="{DynamicResource LabelStyle}"/>
+
+                <Switch Style="{StaticResource DefaultSwitch}"
+                        x:Name="AllowCriticalMissSwitch"
+                        Toggled="AllowCriticalMiss_Toggled"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Allow Monster Items" 
+                       Style="{DynamicResource LabelStyle}"/>
+
+                <Switch Style="{StaticResource DefaultSwitch}"
+                        x:Name="AllowMonsterItemsSwitch"
+                        Toggled="AllowMonsterItems_Toggled"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label Text="Reverse Speed Order" 
+                       Style="{DynamicResource LabelStyle}"/>
+
+                <Switch Style="{StaticResource DefaultSwitch}"
+                        x:Name="ReverseSpeedOrderSwitch"
+                        Toggled="ReverseSpeedOrder_Toggled"/>
+            </StackLayout>
+
+            <Button Clicked="CloseButton_Clicked" 
+                    Style="{StaticResource DefaultButton}"
+                    Text="Close" 
+                    HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

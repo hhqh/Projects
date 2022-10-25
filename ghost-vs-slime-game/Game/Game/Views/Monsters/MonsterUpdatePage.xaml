@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="using:Game.Models"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local_enum="clr-namespace:Game.Models"
+             x:Class="Game.Views.MonsterUpdatePage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <ScrollView HorizontalOptions="CenterAndExpand">
+
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                         Spacing="10"
+                         Margin="50">
+
+                <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" 
+                        Style="{StaticResource ImageLargeStyle}" 
+                        HorizontalOptions="CenterAndExpand"/>
+
+                <Label Text="Name" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Editor x:Name="NameEntry"
+                         Text="{Binding Data.Name, Mode=TwoWay}" 
+                         Style="{StaticResource EntryStyle}"
+                         AutoSize="TextChanges"
+                         TextChanged="Name_ValidateOnTextChanged"/>
+                </Frame>
+
+
+                <Label Text="Description" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Editor x:Name="DescriptionEntry"                       
+                         Text="{Binding Data.Description, Mode=TwoWay}" 
+                         Style="{StaticResource EntryStyle}"
+                         AutoSize="TextChanges"
+                         TextChanged="Description_ValidateOnTextChanged"/>
+                </Frame>
+
+                <Label Text="Image" 
+                       Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Editor Text="{Binding Data.ImageURI, Mode=TwoWay}" 
+                         Style="{StaticResource EntryStyle}"
+                         AutoSize="TextChanges"/>
+                </Frame>
+
+
+                <Label Text="Difficulty" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Picker Style="{StaticResource DefaultPicker}"
+                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListMonster}" 
+                            SelectedItem="{Binding Data.Difficulty, Converter={StaticResource StringEnum}, Mode=TwoWay}"
+                            x:Name="DifficultyPicker"/>
+                </Frame>
+
+
+
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Label Text="Attack: " 
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.Attack, Mode=TwoWay}" 
+                           x:Name="AttackValue"
+                           Style="{StaticResource ValueStyle}"
+                           Padding="0,0,10,0"
+                           HorizontalOptions="End"
+                           HorizontalTextAlignment="End"/>
+                </StackLayout>
+
+                <Slider Style="{StaticResource DefaultSlider}"
+                        Value="{Binding Data.Attack, Mode=TwoWay}"
+                        ValueChanged="Attack_OnStepperValueChanged"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Label Text="Defense: " 
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.Defense, Mode=TwoWay}" 
+                           x:Name="DefenseValue"
+                           Style="{StaticResource ValueStyle}"
+                           Padding="0,0,10,0"
+                           HorizontalOptions="End"
+                           HorizontalTextAlignment="End"/>
+                </StackLayout>
+
+                <Slider Style="{StaticResource DefaultSlider}"
+                        Value="{Binding Data.Defense, Mode=TwoWay}"
+                        ValueChanged="Defense_OnStepperValueChanged"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Label Text="Speed: " 
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.Speed, Mode=TwoWay}" 
+                           x:Name="SpeedValue"
+                           Style="{StaticResource ValueStyle}"
+                           Padding="0,0,10,0"
+                           HorizontalOptions="End"
+                           HorizontalTextAlignment="End"/>
+                </StackLayout>
+
+                <Slider Style="{StaticResource DefaultSlider}"
+                        Value="{Binding Data.Speed, Mode=TwoWay}"
+                        ValueChanged="Speed_OnStepperValueChanged"/>
+
+                <Label Text="Item Drop:" 
+                       Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Picker Style="{StaticResource DefaultPicker}"
+                            x:Name="ItemPicker"
+                            SelectedItem="{Binding SelectedItemProperty}" 
+                            SelectedIndexChanged="UniqueItem_Changed"
+                            ItemDisplayBinding="{Binding Name}" />
+                </Frame>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Save" 
+                            Style="{StaticResource SpacingButton}"
+                            Clicked="Save_Clicked"/>
+
+                    <Button Text="Cancel" 
+                            Style="{StaticResource DefaultButton}"
+                            Clicked="Cancel_Clicked"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

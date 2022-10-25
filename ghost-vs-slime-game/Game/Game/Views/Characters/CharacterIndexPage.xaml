@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="BrowseItemsPage"
+             x:Class="Game.Views.CharacterIndexPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Ghosts" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+
+            <ListView x:Name="CharactersListView" 
+                    ItemsSource="{Binding Dataset}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                    ItemSelected="OnItemSelected"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0"
+                    RowHeight="120">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem IconImageSource="icon_delete.png"
+                                                   BackgroundColor="IndianRed"
+                                                   Invoked="Swipe_Delete" />
+
+                                        <SwipeItem  IconImageSource="icon_edit.png"
+                                                    BackgroundColor="CadetBlue"
+                                                    Invoked="Swipe_Update" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                
+                                <Grid ColumnSpacing="5" RowSpacing="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="200"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="100"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                           Text="{Binding Name}" 
+                                           FontAttributes="Bold"
+                                           Style="{StaticResource ListStyle}"/>
+
+                                    <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"
+                                           Source="{Binding ImageURI}"
+                                           Style="{StaticResource ImageMediumStyle}"
+                                           VerticalOptions="CenterAndExpand"/>
+
+                                    <StackLayout Grid.Column="1" Grid.Row="1" 
+                                                 Style="{StaticResource VerticalStack}" 
+                                                 Margin="15,18,0,0">
+
+                                        <StackLayout Style="{StaticResource HorizontalStack}">
+                                            <Label Text="Level: " 
+                                                   Style="{StaticResource LabelStyle}" />
+
+                                            <Label Text="{Binding Path=Level, StringFormat='{0:G}'}" 
+                                                   Style="{StaticResource ValueStyle}" />
+                                        </StackLayout>
+
+                                        <StackLayout Style="{StaticResource HorizontalStack}">
+                                            <Label Text="Role: " 
+                                                   Style="{StaticResource LabelStyle}" />
+
+                                            <Label Text="{Binding Job}" 
+                                                   Style="{StaticResource ValueStyle}"/>
+                                        </StackLayout>
+
+                                        <StackLayout Style="{StaticResource HorizontalStack}">
+                                            <Label Text="Health: "
+                                                   Style="{StaticResource LabelStyle}"/>
+
+                                            <Label Text="{Binding Path=MaxHealth, StringFormat='{0:G}'}" 
+                                                  Style="{StaticResource ValueStyle}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </SwipeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Style="{StaticResource CreateBarStack}">
+                <Button Text="Create Ghost"
+                        Style="{StaticResource CreateButton}"
+                        Clicked="Add_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

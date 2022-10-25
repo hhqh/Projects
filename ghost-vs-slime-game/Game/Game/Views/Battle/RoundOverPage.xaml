@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.RoundOverPage"
+             BackgroundImageSource="afterbattle_background.png">
+
+    <NavigationPage.TitleView>
+        <Label Text="Round Over" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never" HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource ReadPageStack}">
+                
+                <!--The Item Popup-->
+                <Frame x:Name="PopupLoadingView" Style="{StaticResource EditorPickerFrame}" Margin="0,50,0,0" IsVisible="false">
+                    <StackLayout Style="{StaticResource MessageBoxStack}" HeightRequest="250">
+                        <Image x:Name="PopupItemImage" Style="{StaticResource PlayerBattleMediumStyle}" Margin="0,10,0,0"/>
+
+                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label x:Name="PopupItemName" 
+                                   Style="{StaticResource LabelMessageStyle}" 
+                                   FontAttributes="Bold"/>
+                            
+                            <Label x:Name="PopupItemDescription" 
+                                   Style="{StaticResource LabelMessageStyle}"/>
+
+                            <Label x:Name="PopupItemLocation" 
+                                   Style="{StaticResource LabelMessageStyle}" />
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
+                                <Label x:Name="PopupItemAttribute" 
+                                       Style="{StaticResource LabelMessageStyle}" />
+                                
+                                <Label x:Name="PopupItemValue" 
+                                       Style="{StaticResource LabelMessageStyle}" />
+                            </StackLayout>
+                    </StackLayout>
+                        
+                    <Button x:Name="PopupCloseButton" 
+                                    Style="{StaticResource NoButton}"
+                                    Clicked="ClosePopup_Clicked" 
+                                    Text="Close"
+                                    Margin="0,0,0,10"/>
+                    </StackLayout>
+                </Frame>
+
+                <!--Winning Team-->
+                <StackLayout x:Name="WinMessage" Style="{StaticResource VerticalStack}">
+                    <Image Source="regular_ghost.png" 
+                           Scale="0.5"
+                           HorizontalOptions="CenterAndExpand"/>
+
+                    <Frame Style="{StaticResource EditorPickerFrame}">
+                        <StackLayout Style="{StaticResource MessageBoxStack}" HeightRequest="100">
+                            <Label Text="Ghosts Won!" 
+                                   Style="{StaticResource LabelMessageLargeStyle}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <!--Items Collected-->
+                <StackLayout x:Name="ItemCollected" Style="{StaticResource VerticalStack}">
+                    <Label Text="Items Drop"
+                           Style="{StaticResource CenterMessageLargeStyle}"
+                           FontSize="Medium"
+                           Margin="0,50,0,0"/>
+
+                    <StackLayout Style="{StaticResource VerticalStack}" Margin="0,0,0,20">
+                        <FlexLayout x:Name="ItemListFoundFrame"  
+                                    Style="{StaticResource BattlePlayerFlexStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="ItemsAssign" Style="{StaticResource ReadPageStack}" IsVisible="false">
+                    <Label Text="Items Assigned"
+                           Style="{StaticResource CenterMessageLargeStyle}"
+                           FontSize="Medium"/>
+
+                    <StackLayout Style="{StaticResource VerticalStack}" Margin="0,0,0,20">
+                        <FlexLayout x:Name="ItemListSelectedFrame"  
+                                    Style="{StaticResource BattlePlayerFlexStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <!--Items Assigned-->
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Button Text="Assign Items" 
+                            Style="{StaticResource SpacingButton}" 
+                            Clicked="AutoAssignButton_Clicked"/>
+
+                    <Button x:Name="AmazonDeliveryButton"
+                            Text="Delivery" 
+                            Style="{StaticResource SpacingButton}"
+                            Clicked="AmazonInstantDelivery_Clicked"/>
+
+                    <Button x:Name="NextRound" 
+                            Text="Next Round" 
+                            Style="{StaticResource SpacingButton}" 
+                            Clicked="NextRoundButton_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

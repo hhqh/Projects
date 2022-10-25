@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B24DD120-C27D-480B-A7CB-EC24B08C39D1}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Game.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Game.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\VT323-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.8.116</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Game\Game.csproj">
+      <Project>{9F9BC8E7-A053-4B6C-AB1C-F590BCA732B1}</Project>
+      <Name>Game</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\action_ability.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\action_attack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\action_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\action_move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\battleboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d20_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dungeon_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\items.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\score.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baby_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ginger_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homepage_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\angel_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sporty_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\regular_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\devil_ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\archer_slime.png" />
+    <BundleResource Include="Resources\boss_slime.png" />
+    <BundleResource Include="Resources\jester_slime.png" />
+    <BundleResource Include="Resources\bone.png" />
+    <BundleResource Include="Resources\crown.png" />
+    <BundleResource Include="Resources\lightning_bolt.png" />
+    <BundleResource Include="Resources\jello_potion.png" />
+    <BundleResource Include="Resources\angel_slime.png" />
+    <BundleResource Include="Resources\home_background.png" />
+    <BundleResource Include="Resources\dev_ghosts.png" />
+    <BundleResource Include="Resources\design_ghosts.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\grave.png" />
+    <BundleResource Include="Resources\battle_background.png" />
+    <BundleResource Include="Resources\afterbattle_background.png" />
+    <BundleResource Include="Resources\message_box.png" />
+    <BundleResource Include="Resources\posh_ghost.gif" />
+    <BundleResource Include="Resources\ginger_ghost.gif" />
+    <BundleResource Include="Resources\devil_ghost.gif" />
+    <BundleResource Include="Resources\baby_ghost.gif" />
+    <BundleResource Include="Resources\angel_ghost.gif" />
+    <BundleResource Include="Resources\battleboss_background.png" />
+    <BundleResource Include="Resources\gradient_background.png" />
+    <Content Include="Resources\moon.png" />
+    <Content Include="Resources\posh_ghost.png" />
+    <BundleResource Include="Resources\scary_ghost.png" />
+    <BundleResource Include="Resources\racing_slime.png" />
+    <BundleResource Include="Resources\skull_slime.png" />
+    <BundleResource Include="Resources\slime.png" />
+    <BundleResource Include="Resources\sword.png" />
+    <BundleResource Include="Resources\slime_grenade.png" />
+    <BundleResource Include="Resources\salt.png" />
+    <BundleResource Include="Resources\sexy_slime.png" />
+    <BundleResource Include="Resources\select_background.png" />
+    <BundleResource Include="Resources\treasure.png" />
+    <BundleResource Include="Resources\scary_ghost.gif" />
+    <BundleResource Include="Resources\sporty_ghost.gif" />
+    <BundleResource Include="Resources\regular_ghost.gif" />
+  </ItemGroup>
+</Project>

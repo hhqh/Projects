@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.VillagePage"
+             >
+
+    <ContentPage.Content>
+
+        <ScrollView 
+            HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+            Spacing="10">
+
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <Label Text="Ghosts"
+                           Style="{StaticResource CenterMessageStyle}"/>
+
+                    <ImageButton Source="regular_ghost.png"
+                                 Style="{StaticResource ImageLargeStyle}"
+                                 Clicked="CharactersButton_Clicked"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+                    <Label Text="Slimes"
+                           Style="{StaticResource CenterMessageStyle}"/>
+
+                    <ImageButton Source="skull_slime.png"
+                                 Style="{StaticResource ImageLargeStyle}"
+                                 Clicked="MonstersButton_Clicked"/>
+                </StackLayout>
+
+
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                    <Label Text="Items"
+                           Style="{StaticResource CenterMessageStyle}"/>
+
+                    <ImageButton Source="sword.png"
+                                 Style="{StaticResource ImageLargeStyle}"
+                                 Clicked="ItemsButton_Clicked"/>
+                </StackLayout>
+
+                <Button Text="Scoreboard"
+                        Style="{StaticResource DefaultButton}"
+                        Clicked="ScoresButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

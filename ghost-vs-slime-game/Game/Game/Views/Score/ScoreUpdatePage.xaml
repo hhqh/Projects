@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local="using:Game.Models"
+             xmlns:local_enum="clr-namespace:Game.Models"
+             x:Class="Game.Views.ScoreUpdatePage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="CenterAndExpand">
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                         Spacing="10"
+                         Margin="50">
+
+                <Label Text="Name" 
+                       Style="{StaticResource LabelStyle}"/>
+
+                <Frame Style="{StaticResource EditorPickerFrame}">
+                    <Editor x:Name="NameEntry"
+                            TextChanged="Name_ValidateOnTextChanged"
+                            Text="{Binding Data.Name, Mode=TwoWay}" 
+                            Style="{StaticResource EntryStyle}"
+                            AutoSize="TextChanges"/>
+                </Frame>
+                
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Game Date:"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.GameDate}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="AutoBattle:"                      
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.AutoBattle}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Score:" 
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.ScoreTotal}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Number of Rounds:"                      
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.RoundCount}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Number of Turns:"  
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.TurnCount}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Number of Monsters Slain:"
+                           Style="{StaticResource LabelStyle}"/>
+                    
+                    <Label Text="{Binding Data.MonsterSlainNumber}"
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label Text="Total Experience Gained:"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    <Label Text="{Binding Data.ExperienceGainedTotal}" 
+                           Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <Label Text="Characters at Death:"
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <Label Text="{Binding Data.CharacterAtDeathList}" 
+                       Style="{StaticResource ValueStyle}"/>
+
+                <Label Text="Monsters Killed:"
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <Label Text="{Binding Data.MonstersKilledList}" 
+                       Style="{StaticResource ValueStyle}"/>
+
+                <Label Text="Items Dropped:"
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <Label Text="{Binding Data.ItemsDroppedList}"
+                       Style="{StaticResource ValueStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Save" 
+                            Style="{StaticResource SpacingButton}"
+                            Clicked="Save_Clicked"/>
+
+                    <Button Text="Cancel" 
+                            Style="{StaticResource DefaultButton}"
+                            Clicked="Cancel_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

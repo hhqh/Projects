@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="BrowseItemsPage"
+             x:Class="Game.Views.ScoreIndexPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Scores" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+
+            <ListView x:Name="DataListView" 
+                    ItemsSource="{Binding Dataset}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                    ItemSelected="OnItemSelected"
+                    HasUnevenRows="true"
+                    Margin="50,10,50,10"
+                    RowHeight="115"
+                    WidthRequest="400">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem IconImageSource="icon_delete.png"
+                                                   BackgroundColor="IndianRed"
+                                                   Invoked="Swipe_Delete" />
+                                        
+                                        <SwipeItem  IconImageSource="icon_edit.png"
+                                                    BackgroundColor="CadetBlue"
+                                                    Invoked="Swipe_Update" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                
+                                <StackLayout Style="{StaticResource VerticalStack}" >
+                                    <Grid Style="{StaticResource IndexSpacingGridStyle}"/>
+
+                                        <Frame Style="{StaticResource ListItemFrame}"
+                                               BackgroundColor="{StaticResource TriciaryBackgroundColor}">
+                                            <StackLayout Style="{StaticResource ListItemStack}">
+                                                <Label Text="{Binding Name}" 
+                                                       Style="{StaticResource ListScoreStyle}"/>
+
+                                                <StackLayout Style="{StaticResource ListItemContentStack}">
+                                                    <Label Text="Rounds" 
+                                                           Style="{StaticResource ListScoreStyle}"/>
+
+                                                    <Label Text="............................................." 
+                                                           Style="{StaticResource ListScoreStyle}"/>
+
+                                                    <Label Text="{Binding RoundCount}" 
+                                                           Style="{StaticResource ListScoreStyle}"
+                                                           HorizontalOptions="EndAndExpand"/>
+                                                </StackLayout>
+
+                                                <StackLayout Style="{StaticResource ListItemContentStack}">
+                                                    <Label Text="Score" 
+                                                           Style="{StaticResource ListScoreStyle}"/>
+
+                                                    <Label Text=".............................................." 
+                                                           Style="{StaticResource ListScoreStyle}"/>
+
+                                                    <Label Text="{Binding ScoreTotal}" 
+                                                           Style="{StaticResource ListScoreStyle}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </SwipeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Style="{StaticResource CreateBarStack}">
+                <Button Text="Create Score"
+                        Style="{StaticResource CreateButton}"
+                        Clicked="AddScore_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

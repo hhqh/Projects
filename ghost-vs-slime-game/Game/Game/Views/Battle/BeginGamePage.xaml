@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.BeginGamePage"
+             BackgroundImageSource="gradient_background.png">
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="CenterAndExpand">
+
+            <StackLayout Style="{StaticResource VerticalStack}"
+                    Spacing="20" 
+                    Padding="0,120,0,0">
+
+                <Label Text="Ready To Play?" Style="{StaticResource CenterMessageLargeStyle}"/>
+
+                <Image Source="devil_ghost.png" 
+                   Style="{StaticResource ImageLargeStyle}"
+                   Margin="0,20,0,20"/>
+                
+                <Button Clicked="AutoBattle_Clicked" 
+                        Text="Auto Battle"
+                        Style="{StaticResource DefaultButton}"
+                        WidthRequest="150"/>
+
+                <Button Clicked="Begin_Clicked" 
+                        Text="Begin"
+                        Style="{StaticResource DefaultButton}"
+                        WidthRequest="150"/>
+
+            </StackLayout>
+
+        </ScrollView>
+      
+    </ContentPage.Content>
+    
+</ContentPage>

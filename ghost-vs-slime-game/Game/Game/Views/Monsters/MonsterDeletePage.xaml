@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.MonsterDeletePage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" Style="{StaticResource NavTitleStyle}"/>
+    </NavigationPage.TitleView>
+
+    <ScrollView>
+        <StackLayout Style="{StaticResource OuterBoxStack}"
+                     Margin="60,60,60,60">
+
+            <Label Text="Are you sure you want to delete this character?" 
+                   Style="{StaticResource CenterAlignMediumStyle}"/>
+
+            <Image Source="{Binding Data.ImageURI}" 
+                   Style="{StaticResource ImageLargeStyle}"
+                   Margin="0,20,0,20"/>
+
+            <Label Text="{Binding Data.Name}" 
+                   Style="{StaticResource ValueStyle}"
+                   HorizontalOptions="Center"/>
+
+            <StackLayout Style="{StaticResource HorizontalStack}" 
+                         HorizontalOptions="Center" 
+                         Padding="20">
+
+                <Label Text=" " 
+                       Style="{StaticResource MessageStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <Button Text="Yes" 
+                            Clicked="Delete_Clicked" 
+                            WidthRequest="40"
+                            Style="{StaticResource SpacingButton}"/>
+
+                    <Button Text="No" 
+                            Clicked="Cancel_Clicked" 
+                            WidthRequest="40"
+                            Style="{StaticResource NoButton}"/>
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
