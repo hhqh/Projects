@@ -5,11 +5,10 @@
  * and function prototypes of the customer class.
  */
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wc++11-extensions"
 
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
+
 
 #include "entree.h"
 #include <math.h>

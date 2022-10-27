@@ -78,20 +78,20 @@ void populateIntArray(unsigned int arr1[], unsigned int arr2[],
 void populateEntreeList(vector<entree> &list, entree& e1, entree& e2,
                        entree& e3, entree& e4, entree& e5);
 void populateCustomerList(customer *list[], int size);
-void populateVendorLists(vector<shared_ptr<vendor> > &shared,
-                         vector<unique_ptr<vendor> > &unique,
+void populateVendorLists(vector<shared_ptr<vendor>> &shared,
+                         vector<unique_ptr<vendor>> &unique,
                         shared_ptr<vendor> &v1, shared_ptr<vendor> &v2,
                         shared_ptr<vendor> &v3, unique_ptr<vendor> &v4,
                         unique_ptr<vendor> &v5, unique_ptr<vendor> &v6);
 void addCustomerMoney(customer *list[], int size, int accNum, double money);
-void loadVendorItems(vector<shared_ptr<vendor> > s,vector<unique_ptr<vendor> >& u,
+void loadVendorItems(vector<shared_ptr<vendor>> s,vector<unique_ptr<vendor>>& u,
                      vector<entree> items);
-void sellVendorItems(vector<shared_ptr<vendor> > s,vector<unique_ptr<vendor> >& u,
+void sellVendorItems(vector<shared_ptr<vendor>> s,vector<unique_ptr<vendor>>& u,
                      customer *customerList[], vector<entree> &entreeList,
                      unsigned int quantity);
-void cleanVendor(vector<shared_ptr<vendor> > s, vector<unique_ptr<vendor> > &u);
-void removeVendorItem(vector<shared_ptr<vendor> > &s,
-                      vector<unique_ptr<vendor> > &u);
+void cleanVendor(vector<shared_ptr<vendor>> s, vector<unique_ptr<vendor>> &u);
+void removeVendorItem(vector<shared_ptr<vendor>> &s,
+                      vector<unique_ptr<vendor>> &u);
 void deepCopyCallByValue(entree &item);
 void moveOperator();
 void entreeOperatorTest(vector<entree> &list);
@@ -136,8 +136,8 @@ int main() {
   unique_ptr<vendor> v5(new vendor(randomNumber(), FALSE));
   unique_ptr<vendor> v6(new vendor(randomNumber(), FALSE));
 
-  vector<shared_ptr<vendor> > sharedVendorList;
-  vector<unique_ptr<vendor> > uniqueVendorList;
+  vector<shared_ptr<vendor>> sharedVendorList;
+  vector<unique_ptr<vendor>> uniqueVendorList;
   vector<entree> entreeList;
 
   populateEntreeList(entreeList, e1, e2, e3, e4, e5);
@@ -320,8 +320,8 @@ void populateEntreeList(vector<entree> &list, entree& e1, entree& e2,
   list.push_back(e5);
 }
 
-void populateVendorLists(vector<shared_ptr<vendor> > &shared,
-                         vector<unique_ptr<vendor> > &unique,
+void populateVendorLists(vector<shared_ptr<vendor>> &shared,
+                         vector<unique_ptr<vendor>> &unique,
                          shared_ptr<vendor> &v1, shared_ptr<vendor> &v2,
                          shared_ptr<vendor> &v3, unique_ptr<vendor> &v4,
                          unique_ptr<vendor> &v5, unique_ptr<vendor> &v6){
@@ -353,8 +353,8 @@ void printTotalNutrition(vector<entree> &entreeList)
 
 }
 
-void loadVendorItems(vector<shared_ptr<vendor> > s,
-                     vector<unique_ptr<vendor> > &u, vector<entree> items)
+void loadVendorItems(vector<shared_ptr<vendor>> s,
+                     vector<unique_ptr<vendor>> &u, vector<entree> items)
 {
   cout << "\nLoading the entree items in vendors..." << endl;
   s[0]->Load(items[0]);
@@ -388,7 +388,7 @@ void loadVendorItems(vector<shared_ptr<vendor> > s,
   u[2]->Load(items[4]);
 }
 
-void sellVendorItems(vector<shared_ptr<vendor> > s,vector<unique_ptr<vendor> >& u,
+void sellVendorItems(vector<shared_ptr<vendor>> s,vector<unique_ptr<vendor>>& u,
                      customer *customerList[], vector<entree> &entreeList,
                      unsigned int quantity){
   cout << "\nSelling the entree items in vendors to customers..." << endl;
@@ -419,7 +419,7 @@ void sellVendorItems(vector<shared_ptr<vendor> > s,vector<unique_ptr<vendor> >& 
   }
 }
 
-void cleanVendor(vector<shared_ptr<vendor> > s, vector<unique_ptr<vendor> > &u)
+void cleanVendor(vector<shared_ptr<vendor>> s, vector<unique_ptr<vendor>> &u)
 {
   cout << "\nTesting power outage and clean stock function..." << endl;
 
@@ -462,8 +462,8 @@ void cleanVendor(vector<shared_ptr<vendor> > s, vector<unique_ptr<vendor> > &u)
   }
 }
 
-void removeVendorItem(vector<shared_ptr<vendor> > &s,
-                      vector<unique_ptr<vendor> > &u) {
+void removeVendorItem(vector<shared_ptr<vendor>> &s,
+                      vector<unique_ptr<vendor>> &u) {
   cout << "\nRemoving vendor item from list" << endl;
   s.pop_back();
   u.pop_back();

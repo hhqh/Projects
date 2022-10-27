@@ -5,9 +5,6 @@
  * and function prototypes of the dbetustomer class.
  */
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wc++11-extensions"
-
 #ifndef DBETCUSTOMER_H
 #define DBETCUSTOMER_H
 

@@ -6,7 +6,7 @@ and ingredients. Each vendor has more than one meal/entree that checks if entree
 
 
 ##### Use command to compile 
-g++ *.cpp -o output
+g++ -std=c++11 *.cpp -o output
 
 ##### Run tests
 ./output

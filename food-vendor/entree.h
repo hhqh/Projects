@@ -5,8 +5,6 @@
  * and function prototypes of the entree class.
  */
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wc++11-extensions"
 
 #ifndef ENTREE_H
 #define ENTREE_H
