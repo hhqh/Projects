@@ -51,5 +51,18 @@ Once hit, the target’s health is reduced by the damage (whole numbers).
 ##### Install an Emulator to run the application on Android
 
 ##### Screenshots
+Home |  Index | Read | Edit | Delete 
+:----: |  :-------: | :-----: | :-------: | :-------:
+![Home](https://user-images.githubusercontent.com/81440895/199650386-52c95d2d-6797-4809-a350-eed39c0cc0c3.PNG) | ![index](https://user-images.githubusercontent.com/81440895/199650894-0d298cf0-80aa-404c-bf0b-eb0c2ac689e1.PNG) | ![Read](https://user-images.githubusercontent.com/81440895/199650976-a80c119b-63a6-465d-a262-f696c33df87e.PNG) | ![Edit](https://user-images.githubusercontent.com/81440895/199651056-05ce064d-5901-46aa-afd6-660d9a677b93.PNG) | ![delete1](https://user-images.githubusercontent.com/81440895/199651131-d71ef68a-67d5-49d6-a4d5-73bc95094611.PNG)
+
+
+Select Characters | Battle Overview | Battle 1 | Battle 2 | Battle 3
+:-------: | :-------: | :------: | :--------: | :---------: 
+![Character Select](https://user-images.githubusercontent.com/81440895/199650746-5ae623ea-5c5b-429a-937d-6915931b971d.PNG) | ![overview](https://user-images.githubusercontent.com/81440895/199651249-fa04667e-e29c-4d95-be9a-6c3990102a01.PNG) | ![Battle - treasure](https://user-images.githubusercontent.com/81440895/199651224-01b7de97-df47-4023-a030-8902176661d3.PNG) | ![Battle - Ghost hit](https://user-images.githubusercontent.com/81440895/199651232-6e29d23a-a9f8-449a-9e6a-b7c53717108d.PNG) | ![Battle - Select](https://user-images.githubusercontent.com/81440895/199651368-71dc6d07-3acd-4246-885d-4a93420d2bbf.PNG)
+
+
+Battle 4 | After Battle 1 | After Battle 2 | After Battle 3 | Auto Battle
+:-------: | :---------: | :----------: | :-------: | :-------:
+![Battle - detah](https://user-images.githubusercontent.com/81440895/199651499-aa0733b2-3191-4f1d-be92-0d0c6a63fdce.PNG) | ![After Battle](https://user-images.githubusercontent.com/81440895/199651510-6c68b6d6-9713-4506-9202-809cb27f1fc1.PNG) | ![Item drop](https://user-images.githubusercontent.com/81440895/199651519-61e24577-5d26-4d32-9b20-690236502274.PNG) | ![ghost lost](https://user-images.githubusercontent.com/81440895/199651521-460f4f98-0ef8-4ac3-ab1a-129c6a501c59.PNG) | ![autobattle](https://user-images.githubusercontent.com/81440895/199651524-258e5e63-07b9-4563-9ffc-038d3a49476e.PNG)
 
 
