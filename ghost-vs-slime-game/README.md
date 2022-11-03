@@ -43,9 +43,13 @@ Once hit, the target’s health is reduced by the damage (whole numbers).
 | 7 | Boss Battle | There is a chance a boss will be generated in a battle instead of six monsters. |
 | 8 | Item Steal | There is a chance that monsters will steal the dropped item when a character dies. |
 | 9 | Monster's Item | Monsters are equipped with items. |
+| 10 | Item Retrieval | Auto retrieve items in the cloud. |
 
 
 ##### Install Xamarin to run the application (run as UWP)
 
 ##### Install an Emulator to run the application on Android
+
+##### Screenshots
+
 
