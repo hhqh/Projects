@@ -13,4 +13,4 @@ This project's purpose is to record and compare different vegan, plant-based mil
 This program applies machine learning techniques to preprocess data, develop and train models for predicting auto prices.
 
 ##### Sticky Note Project (JavaScript, CSS, HTML)
-This program is a sticky note application that allows user to create and delete a sticky note.
+This program is a sticky note application that allows user to create and delete a sticky note. (More features will be added)
