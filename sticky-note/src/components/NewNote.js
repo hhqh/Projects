@@ -1,17 +1,10 @@
 import './css/Note.css';
 import addIcon from './assets/add.png';
 
-function NewNote({setShown}) {
-    const handleNewClick = () => {
-        setShown(current => !current);
-    };
-
+function NewNote({modal}) {
     return (           
-        <div className="note-body">
-            <div>
-                <input className="add-btn" type="image" src={addIcon} alt="Submit" onClick={handleNewClick}></input>
-                <p align="center">Add Note </p>
-            </div>
+        <div className="add-bar">
+            <input className="add-btn" type="image"  src={addIcon} alt="Submit" onClick={() => modal(true)}></input>
         </div>
     )
 }

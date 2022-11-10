@@ -1,14 +1,13 @@
 import './App.css';
 import Note from './components/Note';
 import NewNote from './components/NewNote';
-import EditNote from './components/EditNote';
+import Modal from './components/NoteModal';
 import {useState} from 'react';
 import {nanoid} from 'nanoid';
 
 function App() {
   const localDate = new Date();
-  const [isShown, setIsShown] = useState(false);
-  const [canUpdate, setUpdateNote] = useState(false);
+  const [isShownModal, showModal] = useState(false);
   const [notes, setNotes] = useState([]);
 
   const addNote = (text) => {
@@ -21,13 +20,6 @@ function App() {
     setNotes(newNotes);
   }
 
-  const updateNote = (id, text) => {
-    const filteredNotes = notes.filter(note => note.id !== id);
-    const updatedNote = notes.filter(note => note.id == id)[0];
-    updatedNote.text = text;
-    setNotes([...filteredNotes, updatedNote]);
-  }
-
   const deleteNote = (id) => {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
@@ -35,20 +27,18 @@ function App() {
 
   return (
     <div>
-      <div className='notes-grid'>
-        { !isShown && (<NewNote setShown={setIsShown}/>) }
-        { isShown && (<EditNote 
-                        handleAddNote={addNote} 
-                        setShown={setIsShown}/>)}
+      <NewNote modal={showModal}/>
+      <div className='notes-grid'>      
         { notes.map((note) => (
-          <Note
-              id={note.id}
-              text={note.text}
-              date={note.date}
-              handleDeleteClick={deleteNote}
-              handleUpdateClick={updateNote}
-          /> ))}      
-      </div>
+            <Note
+                id={note.id}
+                text={note.text}
+                date={note.date}
+                modal={showModal}
+                handleDeleteClick={deleteNote}
+            /> ))}
+        <Modal handleAddNote={addNote} open={isShownModal} onClose={() => showModal(false)}/>           
+      </div>     
     </div>
   ); 
 }

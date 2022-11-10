@@ -12,58 +12,41 @@
     white-space: pre-wrap;
 }
 
+.modal-body {
+  background-color: #F9F3CE;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 50%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 0 2px 1px #4d6a5b;
+}
+
 .note-footer {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     padding-top: 10px;
-}
-
-img {
-    max-width: 0.1%;
-    height: auto;
-    padding-top: 6px;
-    padding-right: 5px;
-}
-
-input {
-    max-width: 6%;
-    height: auto;
-    padding: 7px;
-    border-radius: 10px;
-}
-
-input:hover {
-    box-shadow: 0 0 2px 1px rgba(177, 206, 215, 0.5);
-}
-
-.add-btn {
-    max-width: 30%;
-    height: auto;
-    border-radius: 10px;
-    display: block;   
-    margin: auto;
-    margin-top: 40px;
-    filter: opacity(0.45) drop-shadow(0 0 0 #719181);
-    border: 8px solid #719181;
-    border-radius: 70px;
-}
-
-p {
-    color: #719181;
-    font-size: large;
+    max-height: 20%;
 }
 
 textarea {
     background-color: #F9F3CE;
     min-height: 200px;
+    max-width: 90%;
+    padding-left: 15px;
     border: none;
     resize: none;
     outline: none;
 }
 
-.del-icon {
-    cursor: pointer;
+label {
+  font-weight: bold;
+  text-align: end;
+  padding-bottom: 20px;
 }
 
 .search-input {
@@ -72,17 +55,46 @@ textarea {
     align-items: center;
 }
 
-.search-input input {
-    border-radius: 20px;
+  .overlay {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal {
+    position: fixed;
+    max-width: 300px;
+    width:100%;
     background-color: #F9F3CE;
-    outline: none;
-    border: none;
-    box-shadow: 0 0 2px 1px #4d6a5b;
-    margin: 20px;
-    font-size: large;
-    max-width: 100%;
-}
+    transform: translate(-50%, -50%);
+    display: flex;
+    top:40%;
+    left:50%;
+    padding: 30px;
+  }
 
-.search-input input:focus{
-    outline: none;
-}
+  input[type=text] {
+    background-color: white;
+    width: 70%;
+    padding: 10px 10px 10px 0px;
+    margin-bottom: 30px;
+  }
+
+  input[type=image] {
+    width: 5.5%;
+    padding: 5px 10px 5px 0px;
+  }
+
+  .add-bar{
+    background-color: #F9F3CE;
+    z-index: 100; 
+    width: 70px;
+    height: 100%;
+    position: fixed;
+  }
+
+  .add-btn {
+    width: 100% !important;
+    filter: opacity(0.35) drop-shadow(0 0 0 #719181) !important;
+  }
