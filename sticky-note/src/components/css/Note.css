@@ -49,12 +49,6 @@ label {
   padding-bottom: 20px;
 }
 
-.search-input {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
   .overlay {
     background-color: rgba(0,0,0,0.5);
     position: fixed;
@@ -75,10 +69,15 @@ label {
   }
 
   input[type=text] {
-    background-color: white;
-    width: 70%;
-    padding: 10px 10px 10px 0px;
-    margin-bottom: 30px;
+    background-color: #F9F3CE;
+    min-width: 65%;
+    margin-top: 20px;
+    padding: 10px 10px 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    margin: 20px 90px 10px;
+    box-shadow: 0 0 2px 1px #4d6a5b;
   }
 
   input[type=image] {
@@ -92,9 +91,12 @@ label {
     width: 70px;
     height: 100%;
     position: fixed;
+    box-shadow: 0 0 2px 1px #4d6a5b;
   }
 
   .add-btn {
     width: 100% !important;
     filter: opacity(0.35) drop-shadow(0 0 0 #719181) !important;
   }
+
+
