@@ -3,7 +3,7 @@ import Note from './components/Note';
 import NewNote from './components/NewNote';
 import Modal from './components/NoteModal';
 import Search from './components/NoteSearch';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {nanoid} from 'nanoid';
 
 function App() {
@@ -27,21 +27,32 @@ function App() {
     setNotes(newNotes);
   }
 
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('note-data'));
+    if (items) {
+     setNotes(items);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('note-data', JSON.stringify(notes));
+  }, [notes])
+
   return (
     <div>
       <NewNote modal={showModal}/>
       <Search handleSearch={searchNote}/>
-      <div className='notes-grid'>      
-        { notes.filter((note) => note.text.toLowerCase().includes(content.toLowerCase())).map((note) => (
-            <Note
-                id={note.id}
-                text={note.text}
-                date={note.date}
-                modal={showModal}
-                handleDeleteClick={deleteNote}
-            /> ))}
+
+      <div className='notes-grid'>    
+          { notes.filter((note) => note.text.toLowerCase().includes(content.toLowerCase())).map((note) => (
+              <Note
+                  id={note.id}
+                  text={note.text}
+                  date={note.date}
+                  handleDeleteClick={deleteNote}
+              /> ))}        
         <Modal handleAddNote={addNote} open={isShownModal} onClose={() => showModal(false)}/>           
-      </div>     
+      </div>    
     </div>
   ); 
 }

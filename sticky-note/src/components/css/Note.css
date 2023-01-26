@@ -70,9 +70,9 @@ label {
 
   input[type=text] {
     background-color: #F9F3CE;
-    min-width: 65%;
+    width: 80%;
     margin-top: 20px;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 10px 10px;
     border: none;
     outline: none;
     border-radius: 15px;
