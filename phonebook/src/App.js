@@ -138,6 +138,10 @@ const App = () => {
           setNewName('')
           setNewNum('')
         })
+        .catch(error => {
+          setError(true)
+          setMessage(`Person validation failed: ${error.response,data.error}`)
+        })
     }
   }
 
