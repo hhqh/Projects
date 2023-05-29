@@ -140,7 +140,8 @@ const App = () => {
         })
         .catch(error => {
           setError(true)
-          setMessage(`Person validation failed: Length is too short`)
+          console.log(error.response.data)
+          setMessage(`Name should be more than 2 characters & number should be in format of DD-DDDDD`)
         })
         setTimeout(() => {
           setMessage(null)
