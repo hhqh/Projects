@@ -140,8 +140,11 @@ const App = () => {
         })
         .catch(error => {
           setError(true)
-          setMessage(`Person validation failed: ${error.response,data.error}`)
+          setMessage(`Person validation failed: Length is too short`)
         })
+        setTimeout(() => {
+          setMessage(null)
+        }, 3000)
     }
   }
 
