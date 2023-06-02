@@ -14,3 +14,6 @@ This program applies machine learning techniques to preprocess data, develop and
 
 #### Sticky Note Project (JavaScript, CSS, HTML)
 This program is a sticky note application that allows user to create and delete a sticky note. (More features will be added)
+
+#### Personal Phonebook (JavaScript, CSS, HTML, MongoDB, Web Server)
+This program consist of two parts: phonebook (frontend components) and phonebook-backend (backend web server). The frontend is a simple application that displays the retrieved data from the backend and allows users to create, update, delete and read a list of contacts in a phonebook and can be built and deployed through Render. The backend is made up of request handlers for create, update, delete and read from the frontend. The backend utilizes MongoDB to store phonebook data in JSON format.
