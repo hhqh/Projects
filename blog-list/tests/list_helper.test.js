@@ -120,3 +120,5 @@ describe('most likes', () => {
     })
 })
 
+module.exports = { blogs }
+

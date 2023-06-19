@@ -8,6 +8,13 @@ blogRouter.get('/', (request, response) => {
         response.json(blogs)
       })
 })
+
+blogRouter.delete('/:id', async (request, response) => {
+  Blog.findByIdAndRemove(request.params.id)
+    .then(result => {
+      response.status(204).end()
+    })
+})
   
 blogRouter.post('/', async (request, response) => {
     const body = request.body

@@ -1,0 +1,36 @@
+.app {
+    display: flex;
+    font-family: 'Montserrat';
+}
+
+.intro-box {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin: 3%;
+    background-color: #fffffb;
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+    height: fit-content;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+
+.nav-bar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #fffffb;
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+}
+
+.content {
+    display: block;
+    margin-top: 5%;
+    padding: 5%;
+    background-color: #fffffb;
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+}
