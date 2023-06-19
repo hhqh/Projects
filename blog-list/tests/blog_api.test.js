@@ -139,7 +139,32 @@ describe('delete blogs api', () => {
     expect(contents).not.toContain(blogToDelete.title)
     
   })
-}) 
+})
+
+describe('update blogs api', () => {
+  test('update number of likes in a blog', async () => {
+    const updatedLikes = helper.blogs[0].likes + 100
+    const blogToUpdate = {
+      _id: helper.blogs[0]._id,
+      title: helper.blogs[0].title,
+      author: helper.blogs[0].author,
+      url: helper.blogs[0].url,
+      likes: updatedLikes
+    }
+
+    await api
+      .put(`/api/blogs/${blogToUpdate._id}`)
+      .send(blogToUpdate)
+      .expect(200)
+
+    const response = await api.get('/api/blogs')
+    expect(response.body).toHaveLength(helper.blogs.length)
+
+    const blogLike = response.body.map(r => r.likes)   
+    expect(blogLike).toContain(updatedLikes)
+
+  })
+})
 
 
 afterAll(async() => {
